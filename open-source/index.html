@@ -16,7 +16,7 @@
   
   <title>
     
-      归档 
+      开源贡献 
       
       
       |
@@ -140,32 +140,139 @@
       </div>
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2025</span>
-          </h2>
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">开源贡献</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2025-02-17 17:10:11
+        </span>
+        
+      </div>
+      <div class="markdown-body">
+        <h2 id="🌟-开源项目贡献"><a href="#🌟-开源项目贡献" class="headerlink" title="🌟 开源项目贡献"></a>🌟 开源项目贡献</h2><h3 id="项目一"><a href="#项目一" class="headerlink" title="项目一"></a>项目一</h3><ul>
+<li><strong>项目</strong>：项目名称和简介</li>
+<li><strong>贡献内容</strong>：<ul>
+<li>PR #xxx：实现了某功能</li>
+<li>Issue #xxx：修复了某问题</li>
+</ul>
+</li>
+<li><strong>技术要点</strong>：涉及的技术细节</li>
+<li><strong>链接</strong>：<a href="#">项目地址</a></li>
+</ul>
+<h3 id="项目二"><a href="#项目二" class="headerlink" title="项目二"></a>项目二</h3><ul>
+<li><strong>项目</strong>：项目名称和简介</li>
+<li><strong>贡献内容</strong>：<ul>
+<li>PR #xxx：改进了某功能</li>
+<li>Issue #xxx：优化了某部分</li>
+</ul>
+</li>
+<li><strong>技术要点</strong>：涉及的技术细节</li>
+<li><strong>链接</strong>：<a href="#">项目地址</a></li>
+</ul>
+<h2 id="📚-技术文章贡献"><a href="#📚-技术文章贡献" class="headerlink" title="📚 技术文章贡献"></a>📚 技术文章贡献</h2><h3 id="文章一"><a href="#文章一" class="headerlink" title="文章一"></a>文章一</h3><ul>
+<li><strong>平台</strong>：发布平台</li>
+<li><strong>主题</strong>：文章主题</li>
+<li><strong>内容概要</strong>：主要讲述了什么</li>
+<li><strong>链接</strong>：<a href="#">文章地址</a></li>
+</ul>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2025-02-17 17:10:11
+            </span>
+            
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
         </div>
       
-      <div class="post-item" title="Hello World">
-        <div class="time-m-d">02-17</div>
-        <div class="title">
-          <a href="/2025/02/17/hello-world/">
-            <span>Hello World</span>
-          </a>
-        </div>
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8C%9F-%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E8%B4%A1%E7%8C%AE"><span class="toc-text">🌟 开源项目贡献</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E4%B8%80"><span class="toc-text">项目一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E4%BA%8C"><span class="toc-text">项目二</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%9A-%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0%E8%B4%A1%E7%8C%AE"><span class="toc-text">📚 技术文章贡献</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E4%B8%80"><span class="toc-text">文章一</span></a></li></ol></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+
+
       </div>
     
   </div>
-</div>
+
 
       </div>
 

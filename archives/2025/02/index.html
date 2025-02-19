@@ -70,6 +70,19 @@
 
   <body>
     <div id="app">
+      <!-- 悬浮导航 -->
+<div class="float-nav" id="floatNav">
+  <div class="nav-header">
+    <div class="speech-bubble">Want some music?</div>
+    <img src="/images/kiwi-bird.png" alt="Kiwi Bird" class="kiwi-bird" onclick="handleMusicClick()">
+  </div>
+  <div class="nav-content">
+    <a href="/" class="nav-item" title="首页">主页</a>
+    <a href="/archives/" class="nav-item" title="归档">归档</a>
+    <a href="/tags/" class="nav-item" title="标签">标签</a>
+    <a href="/about/" class="nav-item" title="关于">关于</a>
+  </div>
+</div> 
       <div class="header">
         <div class="avatar">
           <a href="/">
@@ -82,33 +95,43 @@
             
               
                 <li class="nav-item" data-path="/">
-                  <a href="/">Home</a>
+                  <a href="/">首页</a>
+                </li>
+              
+            
+              
+                <li class="nav-item" data-path="/categories/tech/">
+                  <a href="/categories/tech/">技术博文</a>
+                </li>
+              
+            
+              
+                <li class="nav-item" data-path="/projects/">
+                  <a href="/projects/">项目展示</a>
+                </li>
+              
+            
+              
+                <li class="nav-item" data-path="/open-source/">
+                  <a href="/open-source/">开源贡献</a>
+                </li>
+              
+            
+              
+                <li class="nav-item" data-path="/categories/life/">
+                  <a href="/categories/life/">生活随想</a>
                 </li>
               
             
               
                 <li class="nav-item" data-path="/archives/">
-                  <a href="/archives/">Archives</a>
-                </li>
-              
-            
-              
-            
-              
-                <li class="nav-item" data-path="/tags/">
-                  <a href="/tags/">Tags</a>
-                </li>
-              
-            
-              
-                <li class="nav-item" data-path="/friends/">
-                  <a href="/friends/">Friends</a>
+                  <a href="/archives/">归档</a>
                 </li>
               
             
               
                 <li class="nav-item" data-path="/about/">
-                  <a href="/about/">About</a>
+                  <a href="/about/">关于</a>
                 </li>
               
             
@@ -195,5 +218,6 @@
 
 
     <script src="/js/activeNav.js"></script>
+    <script src="/js/floatNav.js"></script>
   </body>
 </html>

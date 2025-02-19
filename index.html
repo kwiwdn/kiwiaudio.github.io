@@ -65,6 +65,19 @@
 
   <body>
     <div id="app">
+      <!-- 悬浮导航 -->
+<div class="float-nav" id="floatNav">
+  <div class="nav-header">
+    <div class="speech-bubble">Want some music?</div>
+    <img src="/images/kiwi-bird.png" alt="Kiwi Bird" class="kiwi-bird" onclick="handleMusicClick()">
+  </div>
+  <div class="nav-content">
+    <a href="/" class="nav-item" title="首页">主页</a>
+    <a href="/archives/" class="nav-item" title="归档">归档</a>
+    <a href="/tags/" class="nav-item" title="标签">标签</a>
+    <a href="/about/" class="nav-item" title="关于">关于</a>
+  </div>
+</div> 
       <div class="header">
         <div class="avatar">
           <a href="/">
@@ -77,33 +90,43 @@
             
               
                 <li class="nav-item" data-path="/">
-                  <a href="/">Home</a>
+                  <a href="/">首页</a>
+                </li>
+              
+            
+              
+                <li class="nav-item" data-path="/categories/tech/">
+                  <a href="/categories/tech/">技术博文</a>
+                </li>
+              
+            
+              
+                <li class="nav-item" data-path="/projects/">
+                  <a href="/projects/">项目展示</a>
+                </li>
+              
+            
+              
+                <li class="nav-item" data-path="/open-source/">
+                  <a href="/open-source/">开源贡献</a>
+                </li>
+              
+            
+              
+                <li class="nav-item" data-path="/categories/life/">
+                  <a href="/categories/life/">生活随想</a>
                 </li>
               
             
               
                 <li class="nav-item" data-path="/archives/">
-                  <a href="/archives/">Archives</a>
-                </li>
-              
-            
-              
-            
-              
-                <li class="nav-item" data-path="/tags/">
-                  <a href="/tags/">Tags</a>
-                </li>
-              
-            
-              
-                <li class="nav-item" data-path="/friends/">
-                  <a href="/friends/">Friends</a>
+                  <a href="/archives/">归档</a>
                 </li>
               
             
               
                 <li class="nav-item" data-path="/about/">
-                  <a href="/about/">About</a>
+                  <a href="/about/">关于</a>
                 </li>
               
             
@@ -175,8 +198,59 @@
 
 
 <div class="container index">
+  <!-- 个人简介部分 -->
+  <div class="profile-section">
+    <div class="profile-content">
+      <div class="intro-header">
+        <h2>Kiwi</h2>
+        <p class="subtitle">热爱技术 · 专注开发</p>
+      </div>
+      <p class="bio">一名热爱技术的开发者，主要关注 [您的技术方向] 领域。</p>
+      <div class="tech-stack">
+        <span>JavaScript</span>
+        <span>Python</span>
+        <span>Vue</span>
+        <span>Node.js</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 最新项目展示 -->
+  <div class="section-title">
+    <h2>精选项目</h2>
+    <a href="/projects/" class="more-link">查看全部</a>
+  </div>
+  <div class="project-grid">
+    <div class="project-card">
+      <span class="project-icon">
+        <i class="icon-project"></i>
+      </span>
+      <h3>项目一</h3>
+      <p>项目简短描述，核心技术和特点</p>
+      <div class="project-tags">
+        <span>Vue3</span>
+        <span>TypeScript</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <span class="project-icon">
+        <i class="icon-project"></i>
+      </span>
+      <h3>项目二</h3>
+      <p>项目简短描述，核心技术和特点</p>
+      <div class="project-tags">
+        <span>Node.js</span>
+        <span>MongoDB</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 最新文章 -->
+  <div class="section-title">
+    <h2>最新文章</h2>
+    <a href="/archives/" class="more-link">查看全部</a>
+  </div>
   <div class="post-list">
-    <!-- 遍历渲染文章 -->
     
       <div class="post-item" title="Hello World">
   <div class="time-m-d">2025-02-17</div>
@@ -192,11 +266,21 @@
 </div> 
     
   </div>
-  <nav class="post-navigation">
-    
-    <span class="page-num">1 / 1</span>
-    
-  </nav>
+
+  <!-- 开源贡献 -->
+  <div class="section-title">
+    <h2>开源贡献</h2>
+    <a href="/open-source/" class="more-link">查看全部</a>
+  </div>
+  <div class="opensource-list">
+    <div class="opensource-item">
+      <span class="contrib-icon">
+        <i class="icon-github"></i>
+      </span>
+      <h3>项目名称</h3>
+      <p>主要贡献内容简述</p>
+    </div>
+  </div>
 </div>
 
 
@@ -284,5 +368,6 @@
 
 
     <script src="/js/activeNav.js"></script>
+    <script src="/js/floatNav.js"></script>
   </body>
 </html>
