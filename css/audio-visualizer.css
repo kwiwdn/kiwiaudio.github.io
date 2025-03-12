@@ -1,0 +1,126 @@
+/* 音频可视化相关样式 */
+.header {
+  position: relative;
+  padding: 30px 0;
+}
+
+.avatar {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.avatar img.playing {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--color-text-md-code);
+}
+
+.audio-visualizer {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  top: -10px;
+  left: -10px;
+  pointer-events: none;
+}
+
+.audio-visualizer::before,
+.audio-visualizer::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  border: 2px solid var(--color-text-md-code);
+}
+
+/* 播放时的动画效果 */
+.avatar.playing + .audio-visualizer::before {
+  animation: pulseAndRotate 3s ease-out infinite;
+}
+
+.avatar.playing + .audio-visualizer::after {
+  animation: pulseAndRotate 3s ease-out infinite 1.5s;
+}
+
+@keyframes pulseAndRotate {
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  
+  100% {
+    width: 120%;
+    height: 120%;
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+}
+
+/* 导航栏中的小鸟图标样式 */
+#musicTrigger {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: var(--z-index-float-nav);
+}
+
+#musicTrigger.active {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 5px var(--color-text-md-code));
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 768px) {
+  .avatar {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .audio-visualizer {
+    width: 140px;
+    height: 140px;
+    top: -10px;
+    left: -10px;
+  }
+}
+
+/* 暗色模式适配 */
+[color-mode="dark"] .avatar img.playing {
+  box-shadow: 0 0 20px var(--color-text-md-code);
+}
+
+/* 隐藏WaveSurfer默认控件 */
+.wavesurfer-handle,
+.wavesurfer-timeline {
+  display: none !important;
+}
+
+/* 圆形波形图样式 */
+#waveform wave {
+  border-radius: 50%;
+} 
