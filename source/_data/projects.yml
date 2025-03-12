@@ -1,0 +1,47 @@
+# 项目列表
+# name: 项目名称
+# description: 项目简介
+# url: 项目详情文章的路径
+# tags: 技术标签
+
+- name: UE语音管线
+  description: 基于虚幻引擎和 Wwise 的完整语音系统解决方案，包含资源导入、管理和播放功能。
+  url: /projects/posts/ue-voice-pipeline/
+  tags:
+    - UE C++
+    - Wwise
+
+# 你可以继续添加更多项目
+# - name: 项目名称
+#   description: 项目简介
+#   url: /projects/posts/文章名/
+#   tags:
+#     - 技术标签1
+#     - 技术标签2
+
+- name: AudioStudio-AIAgent
+  description: 为音效设计提供全流程AIAgent服务
+  url: /projects/posts/AudioStudio-AIAgent/
+  tags:
+    - Electron
+    - VUE
+    - 大模型部署
+    - LangChain 
+
+
+- name: 载具引擎声合成系统
+  description: 通过物理建模，模拟载具的声学特性，并生成对应的声音
+  url: /projects/posts/载具引擎声合成系统/
+  tags:
+    - C++
+    - 声音合成
+    - 载具
+
+- name: AI音效检索系统
+  description: 实现通过自然语言语义化搜索音效库，或根据输入音频特征找出相似音效
+  url: /projects/posts/AI音效检索系统/
+  tags:
+    - CLAP
+    - Faiss
+    - 音效语义化搜索
+    - 音效检索
