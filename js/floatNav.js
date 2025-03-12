@@ -2,53 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const floatNav = document.getElementById('floatNav');
   const navHeader = floatNav.querySelector('.nav-header');
   const kiwiImage = floatNav.querySelector('.kiwi-bird');
-  const speechBubble = floatNav.querySelector('.speech-bubble');
   
   let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  
-  // 音乐提示文字数组
-  const musicHints = [
-    "Want some music?",
-    "Click me for music!",
-    "Let's play some tunes!",
-    "Music time?",
-    "Need a melody?"
-  ];
-  
-  // 定期切换提示文字
-  let currentHintIndex = 0;
-  function showMusicHint() {
-    if (!floatNav.classList.contains('dragging')) {
-      speechBubble.style.opacity = '1';
-      speechBubble.textContent = musicHints[currentHintIndex];
-      currentHintIndex = (currentHintIndex + 1) % musicHints.length;
-      
-      setTimeout(() => {
-        if (!floatNav.matches(':hover')) {
-          speechBubble.style.opacity = '0';
-        }
-      }, 3000);
-    }
-  }
-  
-  // 每15秒显示一次提示
-  setInterval(showMusicHint, 15000);
-  // 初始显示
-  setTimeout(showMusicHint, 2000);
-  
-  // 鼠标进入时显示提示
-  floatNav.addEventListener('mouseenter', () => {
-    if (!floatNav.classList.contains('dragging')) {
-      speechBubble.style.opacity = '1';
-    }
-  });
-  
-  // 鼠标离开时隐藏提示
-  floatNav.addEventListener('mouseleave', () => {
-    if (!floatNav.classList.contains('dragging')) {
-      speechBubble.style.opacity = '0';
-    }
-  });
   
   // 初始化拖拽
   navHeader.style.cursor = 'grab';
@@ -196,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // 点击效果增强
+  // 点击效果
   if (kiwiImage) {
     let isAnimating = false;
     kiwiImage.addEventListener('click', function() {
@@ -205,21 +160,10 @@ document.addEventListener('DOMContentLoaded', function() {
       floatNav.classList.add('clicking');
       kiwiImage.style.transform = 'rotate(-5deg) scale(1.1)';
       
-      // 点击时更换提示文字
-      speechBubble.textContent = "Playing music...";
-      speechBubble.style.opacity = '1';
-      
       setTimeout(() => {
         kiwiImage.style.transform = '';
         floatNav.classList.remove('clicking');
         isAnimating = false;
-        
-        // 3秒后隐藏提示
-        setTimeout(() => {
-          if (!floatNav.matches(':hover')) {
-            speechBubble.style.opacity = '0';
-          }
-        }, 3000);
       }, 200);
     });
   }
