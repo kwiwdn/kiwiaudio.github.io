@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Kiwi" />
+  <meta name="description" content="分享技术与生活" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Open Graph Description 简短摘要-->
+  
+  <!-- 用于搜索引擎的文章摘要 -->
+  
+  <meta name="description" content="分享技术与生活" />
+  
+  
+  
+  <title>
+    
+      标签 
+       : REAPER
+      
+      |
+    
+     Kiwi&#39;s Blog
+  </title>
+
+  <link rel="apple-touch-icon" href="/images/2.jpg">
+  <link rel="icon" href="/images/2.jpg">
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- 字体设置 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/color-scheme.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/audio-visualizer.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+
+  <!-- 代码块复制 -->
+  <script defer type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  <script defer type="text/javascript" src="/js/codeCopy.js"></script>
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+
+  <link rel="stylesheet" href="/css/transition.css">
+  <script src="/js/pageTransition.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<style>
+.header {
+  padding: 30px 0;  /* 原来是50px，改小一点 */
+}
+
+.avatar {
+  text-align: center;
+}
+
+.avatar img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+/* 移除昵称相关样式 */
+.avatar .nickname {
+  display: none;
+}
+</style>
+
+
+  <body>
+    <div id="app">
+      <!-- 悬浮导航 -->
+<div class="float-nav" id="floatNav">
+  <div class="nav-header">
+    <div class="speech-bubble" id="musicBubble">Click me to play music</div>
+    <img src="/images/kiwi-bird.png" alt="Kiwi Bird" class="kiwi-bird" id="musicTrigger">
+  </div>
+  <div class="nav-content">
+    
+      
+        <a href="/" class="nav-item">首页</a>
+      
+    
+      
+        <a href="/projects/" class="nav-item">项目展示</a>
+      
+    
+      
+        <a href="/archives/" class="nav-item">文章列表</a>
+      
+    
+  </div>
+</div>
+
+<style>
+.float-nav {
+  position: fixed;
+  right: 30px;
+  top: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: var(--z-index-float-nav);
+  pointer-events: auto;
+}
+
+.nav-header {
+  position: relative;
+  margin-bottom: 1rem;
+  cursor: grab;
+}
+
+.kiwi-bird {
+  width: 40px;
+  height: 40px;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.speech-bubble {
+  position: absolute;
+  top: -42px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-text-md-code);
+  padding: 7px 14px;
+  border-radius: 14px;
+  font-size: 14px;
+  color: var(--color-text-md-code);
+  white-space: nowrap;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  font-weight: 600;
+  z-index: 1000;
+  border: 1px solid var(--color-text-md-code);
+  animation: pulseBubble 2s infinite;
+}
+
+@keyframes pulseBubble {
+  0% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.05); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--bg-text-md-code);
+}
+
+.nav-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: var(--bg-text-md-code);
+  padding: 0.8rem;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item {
+  color: var(--color-text-sub);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  text-align: center;
+  font-size: 14px;
+}
+
+.nav-item:hover {
+  background: var(--bg-body);
+  color: var(--color-text-a-hover);
+}
+
+@media (max-width: 768px) {
+  .float-nav {
+    right: 15px;
+  }
+  
+  .nav-content {
+    padding: 0.6rem;
+  }
+  
+  .nav-item {
+    padding: 0.4rem 0.8rem;
+    font-size: 13px;
+  }
+}
+</style>
+
+<!-- SVG 滤镜 -->
+<svg class="float-nav-filters">
+  <defs>
+    <filter id="marker-effect" x="-10%" y="-10%" width="120%" height="120%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02 0.15" numOctaves="2" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
+<!-- 音频元素 -->
+<audio id="bgMusic" src="/music/background.wav" preload="auto"></audio> 
+
+<!-- 添加内联脚本确保气泡始终可见 -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const speechBubble = document.getElementById('musicBubble');
+    if (speechBubble) {
+      // 初始化时强制显示
+      speechBubble.style.opacity = '1';
+      speechBubble.style.visibility = 'visible';
+      speechBubble.style.display = 'block';
+      
+      // 定期检查确保气泡可见
+      setInterval(() => {
+        speechBubble.style.opacity = '1';
+        speechBubble.style.visibility = 'visible';
+        speechBubble.style.display = 'block';
+      }, 1000);
+    }
+  });
+</script> 
+      <div class="header">
+        <div class="avatar">
+          <a href="/">
+            <img src="/images/2.jpg" alt="">
+          </a>
+          <div class="audio-visualizer"></div>
+        </div>
+      </div>
+
+      <div class="flex-container">
+        <!-- 标签详情页，展示某个标签下的文章列表，url形式：https://yoursite/tags/某个标签/ -->
+
+<div class="container tag-details">
+  <div class="content-title">
+    <h2>
+      <span>REAPER</span>
+    </h2>
+  </div>
+  
+    <div class="post-list">
+      <div class="post-item" title="关于 reapy 中奇怪的 KeyError: 'GetNumParams' 问题">
+        <span class="time-m-d">2025-03-11</span>
+        <a href="/2025/03/11/Reapy%E7%9A%84%E6%B5%B7%E6%A3%AE%E5%A0%A1%E9%97%AE%E9%A2%98/">
+          <span>关于 reapy 中奇怪的 KeyError: 'GetNumParams' 问题</span>
+        </a>
+      </div>
+    </div>
+  
+  <nav class="post-navigation">
+    
+    <span class="page-num">1 / 1</span>
+    
+  </nav>
+</div>
+
+      </div>
+
+      
+<div class="footer">
+  
+    <div class="social">
+      <ul>
+        
+          <li>
+            <a target="_blank" rel="noopener" href="https://github.com/kwiwdn">
+              <i class="iconfont icon-github"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  
+
+  
+    
+      
+      <div class="footer-more">
+        <a href="/">
+          Copyright © 2025 Kiwi
+        </a>
+      </div>
+    
+      
+      <div class="footer-more">
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">
+          Powered by Hexo | Theme by Oranges
+        </a>
+      </div>
+    
+  
+
+  
+</div>
+
+    </div>
+
+    
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+    <script src="/js/activeNav.js"></script>
+    <script src="/js/floatNav.js"></script>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const avatarImg = document.querySelector('.avatar img');
+        const musicTrigger = document.getElementById('musicTrigger');
+        const audio = new Audio('/music/background.mp3');
+        // 设置默认音量为 30%
+        audio.volume = 0.3;
+        let isPlaying = false;
+        let audioContext, analyser, source;
+        let lastBeatTime = 0;
+        let beatCount = 0;  // 用于跟踪节拍计数
+        let bpm = 0;
+        let beatInterval = 0;
+        let energyHistory = [];
+        const BEAT_THRESHOLD = 1.5;  // 节拍检测阈值
+        const HISTORY_SIZE = 20;     // 能量历史记录大小
+        const BPM_HISTORY_SIZE = 8;  // BPM历史记录大小
+        let bpmHistory = [];         // 用于平滑BPM值
+
+        // 初始化音频分析器
+        function initAudioAnalyser() {
+          audioContext = new (window.AudioContext || window.webkitAudioContext)();
+          analyser = audioContext.createAnalyser();
+          source = audioContext.createMediaElementSource(audio);
+          
+          // 创建增益节点来控制音量
+          const gainNode = audioContext.createGain();
+          gainNode.gain.value = 0.3;
+          
+          // 设置更高的FFT大小以获得更好的频率分辨率
+          analyser.fftSize = 1024;
+          // 设置平滑时间常数以减少抖动
+          analyser.smoothingTimeConstant = 0.85;
+          
+          source.connect(analyser);
+          analyser.connect(gainNode);
+          gainNode.connect(audioContext.destination);
+        }
+
+        // 计算平均BPM
+        function updateBPM(newInterval) {
+          const bpmValue = 60 / newInterval;
+          bpmHistory.push(bpmValue);
+          if (bpmHistory.length > BPM_HISTORY_SIZE) {
+            bpmHistory.shift();
+          }
+          // 计算平均BPM，排除异常值
+          const sortedBPM = [...bpmHistory].sort((a, b) => a - b);
+          const validBPM = sortedBPM.slice(1, -1); // 去除最高和最低值
+          bpm = validBPM.reduce((a, b) => a + b, 0) / validBPM.length;
+        }
+
+        // 检测节拍
+        function detectBeat(frequencyData) {
+          // 计算当前帧的能量
+          const currentEnergy = frequencyData.slice(0, 8).reduce((acc, val) => acc + val, 0);
+          
+          // 更新能量历史
+          energyHistory.push(currentEnergy);
+          if (energyHistory.length > HISTORY_SIZE) {
+            energyHistory.shift();
+          }
+          
+          // 计算平均能量
+          const avgEnergy = energyHistory.reduce((acc, val) => acc + val, 0) / energyHistory.length;
+          
+          // 检测节拍
+          const now = audioContext.currentTime;
+          if (currentEnergy > avgEnergy * BEAT_THRESHOLD && now - lastBeatTime > 0.2) {
+            const newInterval = now - lastBeatTime;
+            updateBPM(newInterval);
+            lastBeatTime = now;
+            beatCount = (beatCount + 1) % 4; // 假设是4/4拍
+            return true;
+          }
+          return false;
+        }
+
+        // 获取当前节拍的强度系数
+        function getBeatStrength() {
+          // 在4/4拍中：第1拍最强，第3拍次强，第2和第4拍最弱
+          switch(beatCount) {
+            case 0: return 1.0;    // 强拍
+            case 2: return 0.8;    // 次强拍
+            default: return 0.6;   // 弱拍
+          }
+        }
+
+        // 更新发光效果
+        function updateGlow() {
+          if (isPlaying) {
+            const dataArray = new Uint8Array(analyser.frequencyBinCount);
+            analyser.getByteFrequencyData(dataArray);
+            
+            // 分析不同频段
+            const bassRange = dataArray.slice(0, 4);    // 低频范围缩小，更专注于节奏
+            const midRange = dataArray.slice(4, 32);    // 扩大中频范围
+            const trebleRange = dataArray.slice(32, 64); // 扩大高频范围
+            
+            const bassAvg = bassRange.reduce((acc, val) => acc + val, 0) / bassRange.length;
+            const normalizedBassAvg = bassAvg / 255;
+            
+            // 检测节拍
+            const isBeat = detectBeat(dataArray);
+            
+            // 计算发光强度
+            let glowIntensity = 20 + (bassAvg / 255) * 120;
+            if (isBeat) {
+              glowIntensity *= getBeatStrength() * 2;
+            }
+            
+            // 使用固定的颜色
+            avatarImg.style.boxShadow = `
+              0 0 ${glowIntensity * 0.3}px var(--color-text-md-code),
+              0 0 ${glowIntensity * 0.6}px var(--color-text-md-code),
+              0 0 ${glowIntensity}px var(--color-text-md-code)
+            `;
+            
+            // 重写动画逻辑 - 更自然地跟随音乐变化
+            const minScale = 0.5;  // 修改最小值为0.5
+            const maxScale = 0.9;  // 修改最大值为0.9
+            
+            // 分析多个频段，获取更全面的音乐信息
+            const lowFreq = bassRange.reduce((acc, val) => acc + val, 0) / bassRange.length / 255;
+            const midFreq = midRange.reduce((acc, val) => acc + val, 0) / midRange.length / 255;
+            const highFreq = trebleRange.reduce((acc, val) => acc + val, 0) / trebleRange.length / 255;
+            
+            // 追踪频率变化率 - 为每个频段单独存储历史
+            if (!this.freqHistory) {
+              this.freqHistory = {
+                low: [lowFreq],
+                mid: [midFreq],
+                high: [highFreq]
+              };
+              this.changeRates = { low: 0, mid: 0, high: 0 };
+              this.lastTime = audioContext.currentTime;
+              this.pulseDirection = 1; // 新增：脉冲方向
+              this.pulseMagnitude = 0; // 新增：脉冲强度
+            } else {
+              // 计算各频段变化率
+              const dt = audioContext.currentTime - this.lastTime;
+              this.lastTime = audioContext.currentTime;
+              
+              // 添加当前值到历史
+              this.freqHistory.low.push(lowFreq);
+              this.freqHistory.mid.push(midFreq);
+              this.freqHistory.high.push(highFreq);
+              
+              // 保持历史长度
+              if (this.freqHistory.low.length > 5) {
+                this.freqHistory.low.shift();
+                this.freqHistory.mid.shift();
+                this.freqHistory.high.shift();
+              }
+              
+              // 计算变化率 - 增强剧烈程度
+              const getLowDelta = () => {
+                const hist = this.freqHistory.low;
+                const recent = hist.slice(-2); // 只比较最近两帧
+                const oldest = hist.slice(0, -2);
+                return Math.max(0, (recent.reduce((a, b) => a + b, 0) / recent.length) - 
+                               (oldest.reduce((a, b) => a + b, 0) / oldest.length));
+              };
+              
+              // 放大变化率，使幅度变化更剧烈
+              this.changeRates.low = getLowDelta() * 5; // 从3增大到5
+              
+              // 更新脉冲方向和强度
+              if (this.changeRates.low > 0.05) {
+                // 检测到明显变化，触发脉冲
+                this.pulseDirection = 1;
+                this.pulseMagnitude = Math.min(this.changeRates.low * 4, 0.4); // 放大脉冲强度
+              } else {
+                // 逐渐减弱脉冲
+                this.pulseMagnitude *= 0.9;
+                if (this.pulseMagnitude < 0.02) {
+                  this.pulseDirection = -1;
+                }
+              }
+            }
+            
+            // 基础值使用当前低频能量，非线性映射
+            const energyScale = minScale + Math.pow(lowFreq, 0.5) * (maxScale - minScale) * 1.5;
+            
+            // 结合脉冲效果
+            let scale = energyScale;
+            if (this.pulseDirection > 0 && this.pulseMagnitude > 0.02) {
+              // 添加脉冲增强
+              scale += this.pulseMagnitude;
+            }
+            
+            // 检测到节拍时添加明显的额外脉冲
+            if (isBeat) {
+              // 节拍时额外提升，使节拍感更明显
+              const beatBoost = getBeatStrength() * 0.35; // 从0.3增加到0.35
+              scale += beatBoost;
+              
+              // 重置脉冲状态
+              this.pulseDirection = 1;
+              this.pulseMagnitude = Math.max(this.pulseMagnitude, beatBoost);
+              
+              // 节拍时明显增强光晕
+              avatarImg.style.boxShadow = `
+                0 0 ${glowIntensity * 0.6}px var(--color-text-md-code),
+                0 0 ${glowIntensity * 0.9}px var(--color-text-md-code),
+                0 0 ${glowIntensity * 1.4}px var(--color-text-md-code)
+              `;
+            }
+            
+            // 使用响应速度更快的平滑过渡
+            if (!this.currentScale) {
+              this.currentScale = scale;
+            } else {
+              // 更快的响应和更明显的变化
+              const upFactor = 0.4;   // 上升时快速响应(从0.5改为0.4)
+              const downFactor = 0.7; // 下降时中等速度(从0.8改为0.7)
+              const smoothFactor = scale > this.currentScale ? upFactor : downFactor;
+              this.currentScale = this.currentScale * smoothFactor + scale * (1 - smoothFactor);
+            }
+            
+            // 添加强制收缩逻辑，确保有明显的收缩过程
+            if (this.pulseDirection < 0 && this.currentScale > minScale + 0.05) {
+              // 当处于收缩阶段且尚未接近最小值时，加速收缩
+              this.currentScale = Math.max(minScale, this.currentScale * 0.95);
+            }
+            
+            // 应用缩放，确保不超出范围
+            this.currentScale = Math.max(minScale, Math.min(maxScale + 0.1, this.currentScale));
+            avatarImg.style.transform = `scale(${this.currentScale})`;
+            
+            requestAnimationFrame(updateGlow);
+          }
+        }
+
+        // 重置播放状态
+        function resetPlayState() {
+          isPlaying = false;
+          avatarImg.classList.remove('playing');
+          musicTrigger.classList.remove('active');
+          avatarImg.style.boxShadow = 'none';
+          avatarImg.style.transform = 'scale(1)';
+          energyHistory = [];
+          bpmHistory = [];
+          beatCount = 0;
+          lastBeatTime = 0;
+          bpm = 0;
+          
+          // 更新气泡文本
+          const musicBubble = document.getElementById('musicBubble');
+          if (musicBubble) {
+            musicBubble.textContent = 'Click me to play music';
+          }
+        }
+
+        // 点击小鸟图标播放/暂停
+        musicTrigger.addEventListener('click', async function() {
+          const musicBubble = document.getElementById('musicBubble');
+          
+          if (!isPlaying) {
+            try {
+              if (!audioContext) {
+                initAudioAnalyser();
+              }
+              if (audioContext.state === 'suspended') {
+                await audioContext.resume();
+              }
+              await audio.play();
+              avatarImg.classList.add('playing');
+              musicTrigger.classList.add('active');
+              isPlaying = true;
+              
+              // 更新气泡文本为停止指示
+              if (musicBubble) {
+                musicBubble.textContent = 'Click me to stop';
+              }
+              
+              updateGlow();
+            } catch (error) {
+              console.error('播放失败:', error);
+              resetPlayState();
+            }
+          } else {
+            audio.pause();
+            resetPlayState();
+          }
+        });
+
+        // 监听音频结束
+        audio.addEventListener('ended', function() {
+          resetPlayState();
+        });
+
+        // 监听音频错误
+        audio.addEventListener('error', function(error) {
+          console.error('音频加载错误:', error);
+          resetPlayState();
+        });
+
+        // 禁用用户音量控制
+        audio.addEventListener('volumechange', function(e) {
+          if (audio.volume !== 0.3) {
+            audio.volume = 0.3;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
